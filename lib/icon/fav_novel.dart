@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 bool like = false;
 bool unlike = false;
 bool isFavorite = false;
-
+//tombol favorite
 class Like extends StatefulWidget {
   const Like({Key? key}) : super(key: key);
 
