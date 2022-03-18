@@ -1,6 +1,21 @@
 # novel_app
+This is my final project from create flutter beginner class from Dicoding.
 
-A new Flutter project.
+## Screenshot
+<p align="center">
+    <img src="/screenshot/homepage.png"
+        alt="Homescreen"    
+        style="margin-right: 15px;"    
+        width="200" />
+    <img src="/screenshot/detail.png"
+        alt="Detail information Novel"    
+        style="margin-right: 15px;"    
+        width="200" />
+    <img src="/screenshot/content.png"
+        alt="Content Novel"    
+        style="margin-right: 15px;"    
+        width="200" />
+</p>
 
 ## Getting Started
 
