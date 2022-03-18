@@ -128,8 +128,7 @@ class DetailNovel extends StatelessWidget {
                             Row(
                               children: [
                                 Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(data.title,
                                         style: const TextStyle(
@@ -170,11 +169,10 @@ class DetailNovel extends StatelessWidget {
                                     ),
                                     Row(
                                       children: [
-                                        Text('Status: ',
-                                            style: information16),
+                                        Text('Status: ', style: information16),
                                         Text(data.status,
-                                            style: TextStyle(
-                                                color: Colors.orange))
+                                            style:
+                                                TextStyle(color: Colors.orange))
                                       ],
                                     ),
                                     SizedBox(
@@ -276,7 +274,8 @@ class DetailNovel extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.all(16),
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.start,
                                   children: [
                                     Text(data.chapter,
                                         style: const TextStyle(
@@ -285,7 +284,8 @@ class DetailNovel extends StatelessWidget {
                                             fontWeight: FontWeight.normal)),
                                     Text(data.date,
                                         style: const TextStyle(
-                                            color: Colors.grey, fontSize: 12)),
+                                            color: Colors.grey,
+                                            fontSize: 12)),
                                   ],
                                 ),
                               ),
@@ -323,40 +323,38 @@ class ReadNovel extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Container(
-            child: Column(
-              children: [
-                Column(
-                  children: [
-                    Column(
-                      children: [
-                        Center(
-                            child: Text(
-                          data.chapter,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 32,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        )),
-                      ],
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Column(
-                  children: [
-                    Text(
-                      data.content,
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                  ],
-                )
-              ],
-            ),
+          child: Column(
+            children: [
+              Column(
+                children: [
+                  Column(
+                    children: [
+                      Center(
+                          child: Text(
+                        data.chapter,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 32,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
+                      )),
+                    ],
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Column(
+                children: [
+                  Text(
+                    data.content,
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ],
+              )
+            ],
           ),
         ),
       ),
