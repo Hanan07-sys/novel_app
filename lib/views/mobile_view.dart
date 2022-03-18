@@ -50,7 +50,8 @@ class _ContentNovelState extends State<ContentNovel> {
               return DetailNovel(data: data);
             }));
           },
-          child: Container(
+          child: Hero(
+            tag: data.title,
             child: Column(
               children: [
                 Flexible(
@@ -97,14 +98,15 @@ class DetailNovel extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  Container(
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          Row(
-                            children: [
-                              Container(
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Row(
+                          children: [
+                            Hero(
+                              tag: data.title,
+                              child: Container(
                                   height: 200,
                                   width: 150,
                                   child: Material(
@@ -114,98 +116,98 @@ class DetailNovel extends StatelessWidget {
                                       image: AssetImage(data.image),
                                       fit: BoxFit.fill,
                                     ),
-                                  ))
-                            ],
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Row(
-                            children: [
-                              Row(
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(data.title,
-                                          style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 24,
-                                              fontWeight: FontWeight.bold)),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text('Rating: ' + data.rating,
-                                              style: information18),
-                                          const Icon(
-                                            Icons.star,
-                                            color: Colors.yellow,
+                                  )),
+                            )
+                          ],
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        Row(
+                          children: [
+                            Row(
+                              children: [
+                                Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                  children: [
+                                    Text(data.title,
+                                        style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold)),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text('Rating: ' + data.rating,
+                                            style: information18),
+                                        const Icon(
+                                          Icons.star,
+                                          color: Colors.yellow,
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text('Author: ' + data.author,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: information16),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                        'Genre : ' +
+                                            data.genre1 +
+                                            ',' +
+                                            data.genre2,
+                                        style: information16),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text('Status: ',
+                                            style: information16),
+                                        Text(data.status,
+                                            style: TextStyle(
+                                                color: Colors.orange))
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Row(
+                                      children: [
+                                        ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                              primary: Colors.redAccent),
+                                          child: Text(
+                                            'READ NOW',
+                                            style: TextStyle(
+                                                color: Colors.white),
                                           ),
-                                        ],
-                                      ),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      Text('Author: ' + data.author,
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: information16),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      Text(
-                                          'Genre : ' +
-                                              data.genre1 +
-                                              ',' +
-                                              data.genre2,
-                                          style: information16),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text('Status: ',
-                                              style: information16),
-                                          Text(data.status,
-                                              style: TextStyle(
-                                                  color: Colors.orange))
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Row(
-                                        children: [
-                                          ElevatedButton(
-                                            style: ElevatedButton.styleFrom(
-                                                primary: Colors.redAccent),
-                                            child: Text(
-                                              'READ NOW',
-                                              style: TextStyle(
-                                                  color: Colors.white),
-                                            ),
-                                            onPressed: () {
-                                              Navigator.push(context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) {
-                                                return ReadNovel(data: data);
-                                              }));
-                                            },
-                                          ),
-                                        ],
-                                      ),
-                                      //ICON
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                                          onPressed: () {
+                                            Navigator.push(context,
+                                                MaterialPageRoute(
+                                                    builder: (context) {
+                                              return ReadNovel(data: data);
+                                            }));
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    //ICON
+                                  ],
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(
