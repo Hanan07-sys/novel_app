@@ -92,222 +92,242 @@ class DetailNovel extends StatelessWidget {
         backgroundColor: Color(0xFF4F4F4F),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                children: [
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
+        child: buildColumnContentNovel(context),
+      ),
+    );
+  }
+
+  Column buildColumnContentNovel(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Row(
                       children: [
-                        Row(
-                          children: [
-                            Hero(
-                              tag: data.title,
-                              child: Container(
-                                  height: 200,
-                                  width: 150,
-                                  child: Material(
-                                    elevation: 15.0,
-                                    shadowColor: Colors.grey.shade500,
-                                    child: Image(
-                                      image: AssetImage(data.image),
-                                      fit: BoxFit.fill,
-                                    ),
-                                  )),
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        Row(
-                          children: [
-                            Row(
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(data.title,
-                                        style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 24,
-                                            fontWeight: FontWeight.bold)),
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text('Rating: ' + data.rating,
-                                            style: information18),
-                                        const Icon(
-                                          Icons.star,
-                                          color: Colors.yellow,
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text('Author: ' + data.author,
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: information16),
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                        'Genre : ' +
-                                            data.genre1 +
-                                            ',' +
-                                            data.genre2,
-                                        style: information16),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text('Status: ', style: information16),
-                                        Text(data.status,
-                                            style:
-                                                TextStyle(color: Colors.orange))
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Row(
-                                      children: [
-                                        ElevatedButton(
-                                          style: ElevatedButton.styleFrom(
-                                              primary: Colors.redAccent),
-                                          child: Text(
-                                            'READ NOW',
-                                            style: TextStyle(
-                                                color: Colors.white),
-                                          ),
-                                          onPressed: () {
-                                            Navigator.push(context,
-                                                MaterialPageRoute(
-                                                    builder: (context) {
-                                              return ReadNovel(data: data);
-                                            }));
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                    //ICON
-                                  ],
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
+                        Hero(
+                          tag: data.title,
+                          child: Container(
+                              height: 200,
+                              width: 150,
+                              child: Material(
+                                elevation: 15.0,
+                                shadowColor: Colors.grey.shade500,
+                                child: Image(
+                                  image: AssetImage(data.image),
+                                  fit: BoxFit.fill,
+                                ),
+                              )),
+                        )
                       ],
                     ),
-                  ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    buildRowTitleContent(context),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Like(),
                   const SizedBox(
-                    height: 10,
+                    width: 5,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Like(),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Unlike(),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      FavoriteButton()
-                    ],
-                  ),
+                  Unlike(),
                   const SizedBox(
-                    height: 10,
+                    width: 5,
                   ),
-                  Column(
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            'Sinopsis',
-                            style: information16,
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        child: Text(data.sinopsis,
-                            textAlign: TextAlign.justify, style: information14),
-                      )
-                    ],
-                  ),
+                  FavoriteButton()
                 ],
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 16),
-              child: Column(
+              const SizedBox(
+                height: 10,
+              ),
+              Column(
                 children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return ReadNovel(data: data);
-                      }));
-                    },
-                    child: Card(
-                      color: Colors.purple,
-                      child: Row(
-                        children: [
-                          Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(16),
-                                child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                  children: [
-                                    Text(data.chapter,
-                                        style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.normal)),
-                                    Text(data.date,
-                                        style: const TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 12)),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+                  Row(
+                    children: [
+                      Text(
+                        'Sinopsis',
+                        style: information16,
                       ),
-                    ),
+                    ],
                   )
                 ],
               ),
+              const SizedBox(
+                height: 10,
+              ),
+              buildSinopsisDetail(),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 16),
+          child: Column(
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return ReadNovel(data: data);
+                  }));
+                },
+                child: buildChapterDetail(),
+              )
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
+  Card buildChapterDetail() {
+    return Card(
+      color: Colors.purple,
+      child: Row(
+        children: [
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(data.chapter,
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.normal)),
+                    Text(data.date,
+                        style:
+                            const TextStyle(color: Colors.grey, fontSize: 12)),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Column buildSinopsisDetail() {
+    return Column(
+      children: [
+        Container(
+          child: Text(data.sinopsis,
+              textAlign: TextAlign.justify, style: information14),
+        )
+      ],
+    );
+  }
+
+  Row buildRowTitleContent(BuildContext context) {
+    return Row(
+      children: [
+        Row(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(data.title,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold)),
+                const SizedBox(
+                  height: 10,
+                ),
+                buildStarDetail(),
+                const SizedBox(
+                  height: 10,
+                ),
+                buildAuthorDetail(),
+                const SizedBox(
+                  height: 10,
+                ),
+                buildGenreDetail(),
+                SizedBox(
+                  height: 10,
+                ),
+                buildStatusDetail(),
+                SizedBox(
+                  height: 10,
+                ),
+                buildButtonDetail(context),
+                //ICON
+              ],
             )
           ],
         ),
-      ),
+      ],
+    );
+  }
+
+  Row buildButtonDetail(BuildContext context) {
+    return Row(
+      children: [
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(primary: Colors.redAccent),
+          child: Text(
+            'READ NOW',
+            style: TextStyle(color: Colors.white),
+          ),
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return ReadNovel(data: data);
+            }));
+          },
+        ),
+      ],
+    );
+  }
+
+  Row buildStatusDetail() {
+    return Row(
+      children: [
+        Text('Status: ', style: information16),
+        Text(data.status, style: TextStyle(color: Colors.orange))
+      ],
+    );
+  }
+
+  Text buildGenreDetail() {
+    return Text('Genre : ' + data.genre1 + ',' + data.genre2,
+        style: information16);
+  }
+
+  Text buildAuthorDetail() {
+    return Text('Author: ' + data.author,
+        maxLines: 1, overflow: TextOverflow.ellipsis, style: information16);
+  }
+
+  Row buildStarDetail() {
+    return Row(
+      children: [
+        Text('Rating: ' + data.rating, style: information18),
+        const Icon(
+          Icons.star,
+          color: Colors.yellow,
+        ),
+      ],
     );
   }
 }
 
 class ReadNovel extends StatelessWidget {
   var information36 =
-      TextStyle(color: Colors.white, fontSize: 10, fontFamily: 'Roboto');
+      const TextStyle(color: Colors.white, fontSize: 10, fontFamily: 'Roboto');
   final DataNovel data;
   ReadNovel({required this.data});
 
@@ -321,43 +341,51 @@ class ReadNovel extends StatelessWidget {
         backgroundColor: Color(0xFF4F4F4F),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
+        child: buildTitleContent(),
+      ),
+    );
+  }
+
+  Padding buildTitleContent() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          Column(
             children: [
               Column(
                 children: [
-                  Column(
-                    children: [
-                      Center(
-                          child: Text(
-                        data.chapter,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 32,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      )),
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Column(
-                children: [
-                  Text(
-                    data.content,
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
+                  Center(
+                      child: Text(
+                    data.chapter,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 32,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  )),
                 ],
               )
             ],
           ),
-        ),
+          SizedBox(
+            height: 20,
+          ),
+          buildMainContent()
+        ],
       ),
+    );
+  }
+
+  Column buildMainContent() {
+    return Column(
+      children: [
+        Text(
+          data.content,
+          textAlign: TextAlign.justify,
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+      ],
     );
   }
 }
