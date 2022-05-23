@@ -50,6 +50,7 @@ class _ContentNovelState extends State<ContentNovel> {
               return DetailNovel(data: data);
             }));
           },
+          //TEST
           child: Hero(
             tag: data.title,
             child: Column(
@@ -136,6 +137,7 @@ class DetailNovel extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
+              //TEST
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
